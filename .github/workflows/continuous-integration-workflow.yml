@@ -1,5 +1,16 @@
-- uses: Azure/pipelines@v1
-  with:
-    azure-devops-project-url: 'https://dev.azure.com/shunmw/shunmw'
-    azure-pipeline-name: 'MS.desktopJS' # name of the Azure pipeline to be triggered
-    azure-devops-token: '${{ secrets.AZURE_DEVOPS_TOKEN }}'
+name: Greet Everyone
+# This workflow is triggered on pushes to the repository.
+on: [push]
+
+jobs:
+  build:
+    # Job name is Greeting
+    name: Greeting
+    # This job runs on Linux
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Azure/pipelines@v1
+        with:
+          azure-devops-project-url: 'https://dev.azure.com/shunmw/shunmw'
+          azure-pipeline-name: 'MS.desktopJS' # name of the Azure pipeline to be triggered
+          azure-devops-token: '${{ secrets.AZURE_DEVOPS_TOKEN }}'
