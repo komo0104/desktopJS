@@ -1,2 +1,13 @@
 stages:
-  -stage  
+  - stage : Snapshot
+    jobs:
+    - job: SnapshotJob 
+      displayName: Snapshot Application
+      workspace:
+       clean: all
+      steps:
+        - checkout: self
+          persistCredentials: true
+        - bash: |
+            pwd
+          displayName: 'Action Test'
